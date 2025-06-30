@@ -29,9 +29,8 @@ prompt_seleccionado = st.selectbox("🧩 Elige tipo de prompt", tipos_prompt)
 @st.cache_resource(show_spinner=False)
 def load_resources(ruta_index, ruta_yaml, prompt_name):
     faiss_index = construir_o_cargar_indice(ruta_index)
-    memory = get_memory()
     custom_prompt = cargar_prompt_por_nombre(ruta_yaml, prompt_name)
-    return faiss_index, memory, custom_prompt
+    return faiss_index, custom_prompt
 
 
 # Función auxiliar para cargar prompt por nombre
@@ -50,7 +49,13 @@ def cargar_prompt_por_nombre(ruta_yaml, nombre):
 # Cargar recursos solo una vez
 auto_index_path = "./Code/faiss_practicas_upv"
 with st.spinner("Cargando recursos..."):
-    faiss_index, memory, custom_prompt = load_resources(auto_index_path, ruta_yaml, prompt_seleccionado)
+    faiss_index, custom_prompt = load_resources(auto_index_path, ruta_yaml, prompt_seleccionado)
+
+
+if "memory" not in st.session_state:
+    st.session_state["memory"] = get_memory()
+
+memory = st.session_state["memory"]
 
 # Mostrar estado de memoria
 if memory and memory.chat_memory.messages:
