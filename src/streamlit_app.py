@@ -8,7 +8,7 @@ from langchain.prompts import PromptTemplate
 from langchain.chat_models import ChatOpenAI
 
 from indexador import construir_o_cargar_indice
-from rag_chain import get_memory, recuperar_y_rerankear, generar_respuesta
+from rag_chain import get_memory, recuperar_y_rerankear, generar_respuesta,crear_rag_chain
 from db_logger import guardar_resultado
 
 # Cargar entorno
@@ -57,6 +57,9 @@ if "memory" not in st.session_state:
 
 memory = st.session_state["memory"]
 
+rag_chain = crear_rag_chain(faiss_index, memory, custom_prompt)
+
+
 # Mostrar estado de memoria
 if memory and memory.chat_memory.messages:
     st.write("🧠 Memoria actual:")
@@ -71,33 +74,21 @@ enviar = st.button("Enviar")
 
 if query and (enviar or not st.session_state.get("esperando_boton", False)):
     with st.spinner("Consultando..."):
-        retriever = faiss_index.as_retriever(
-            search_type="mmr", search_kwargs={"k": 15, "fetch_k": 40, "lambda_mult": 0.3}
-        )
-        docs_filtrados = recuperar_y_rerankear(query, retriever, usar_reranker=True)
-        chat_hist = memory.chat_memory.messages
-        history_formatted = [(m.type, m.content) for m in chat_hist]
-
-        respuesta = generar_respuesta(
-            llm=ChatOpenAI(model="gpt-3.5-turbo", temperature=0.3),
-            prompt_template=custom_prompt,
-            question=query,
-            context_docs=docs_filtrados,
-            chat_history=history_formatted
-        )
-        memory.chat_memory.add_user_message(query)
-        memory.chat_memory.add_ai_message(respuesta)
-
+        result = rag_chain.invoke({"question": query})
+        respuesta = result["answer"]
+        docs_filtrados = result["source_documents"]
 
     st.markdown("### ✅ Respuesta")
     st.write(respuesta)
 
-    st.markdown("### 🗂️ Documentos utilizados")
+    st.markdown("### 📂 Documentos utilizados")
     for i, doc in enumerate(docs_filtrados, start=1):
         st.markdown(f"**{i}. Fuente:** `{doc.metadata.get('source', 'desconocida')}`")
         st.write(doc.page_content)
 
-    if st.button("💾 Guardar esta respuesta"):
+    if st.button("📂 Guardar esta respuesta"):
+        chat_hist = memory.chat_memory.messages
+        history_formatted = [(m.type, m.content) for m in chat_hist]
         guardar_resultado(query, respuesta, docs_filtrados, history_formatted)
         st.success("Respuesta guardada correctamente.")
 
