@@ -20,7 +20,7 @@ def crear_rag_chain(vectorstore, memory, custom_prompt):
         llm=llm,
         retriever=vectorstore.as_retriever(
             search_type="mmr",
-            search_kwargs={"k": 8, "fetch_k": 30, "lambda_mult": 0.3}
+            search_kwargs={"k": 10, "fetch_k": 30, "lambda_mult": 0.3}
         ),
         memory=memory,
         return_source_documents=True,
