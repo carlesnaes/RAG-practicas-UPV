@@ -11,6 +11,14 @@ from indexador import construir_o_cargar_indice
 from rag_chain import get_memory, crear_rag_chain
 from db_logger import guardar_resultado
 
+hide_streamlit_style = """
+    <style>
+    #MainMenu {visibility: hidden;}
+    footer {visibility: hidden;}
+    header {visibility: hidden;}
+    </style>
+    """
+
 # Cargar entorno
 load_dotenv()
 if "OPENAI_API_KEY" not in os.environ:
