@@ -8,7 +8,7 @@ from langchain.prompts import PromptTemplate
 from langchain.chat_models import ChatOpenAI
 
 from indexador import construir_o_cargar_indice
-from rag_chain import get_memory, recuperar_y_rerankear, generar_respuesta,crear_rag_chain
+from rag_chain import get_memory, crear_rag_chain
 from db_logger import guardar_resultado
 
 # Cargar entorno
@@ -22,7 +22,7 @@ st.title("🎓 Asistente de Prácticas Externas - UPV")
 
 # Selección de prompt desde YAML
 ruta_yaml = "Prompts/prompts.yaml"
-tipos_prompt = ["default", "estricto", "informal"]
+tipos_prompt = [ "estricto"]
 prompt_seleccionado = st.selectbox("🧩 Elige tipo de prompt", tipos_prompt)
 
 # Carga de recursos pesada: índice, memoria y cadena RAG
