@@ -176,7 +176,7 @@ def cargar_chunks_manual(role):
     # Chunk 15: Cómo generar un convenio de prácticas
     docs.append( Document(
     page_content=(
-        "Generación del convenio: El convenio de cooperación educativa debe generarse a través de la herramienta “Calcula tu práctica” "
+        "Generación del convenio: El convenio de cooperación educativa debe generarse, crearse o realizarse a través de la herramienta “Calcula tu práctica” "
         "(https://www.sie.upv.es/meta1b/Piniciocal.aspx?lang=ES). "
         "Esta aplicación permite al estudiante rellenar los datos acordados con la empresa y las demás condiciones de la práctica, como horarios, fechas y bolsa económica. "
         "Una vez cumplimentado, el convenio debe ser firmado electrónicamente por todas las partes implicadas: el representante de la empresa, el tutor o tutora de empresa, el tutor o tutora UPV y el propio estudiante. "
