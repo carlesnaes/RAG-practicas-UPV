@@ -4,9 +4,9 @@
 Escola Tècnica Superior d’Enginyeria Informàtica 
 Unidad de Prácticas en Empresa 
 Edificio 1G. Camí de Vera, s/n 46022 VALÈNCIA 
-Tel. +34 963 87 92 12 
-upe_inf@etsinf.upv.es 
-www.upv.es/entidades/etsinf  
+Tel. +34 963 87 92 12  (url: mailto:upe_inf@etsinf.upv.es)
+upe_inf@etsinf.upv.es  (url: mailto:upe_inf@etsinf.upv.es)
+www.upv.es/entidades/etsinf (url: mailto:upe_inf@etsinf.upv.es)  
  
 Prácticas externas 
  
@@ -39,15 +39,16 @@ Instituciones públicas
 Fundaciones y asociaciones sin ánimo de lucro.   
 − 
 Entidades de nuestra universidad (departamentos, servicios, institutos, etc.).  
+
  
  
  
 Escola Tècnica Superior d’Enginyeria Informàtica 
 Unidad de Prácticas en Empresa 
 Edificio 1G. Camí de Vera, s/n 46022 VALÈNCIA 
-Tel. +34 963 87 92 12 
-upe_inf@etsinf.upv.es 
-www.upv.es/entidades/etsinf  
+Tel. +34 963 87 92 12  (url: mailto:upe_inf@etsinf.upv.es)
+upe_inf@etsinf.upv.es  (url: mailto:upe_inf@etsinf.upv.es)
+www.upv.es/entidades/etsinf (url: mailto:upe_inf@etsinf.upv.es)  
 Tipos de prácticas y cómo se contemplan en el Plan de 
 Estudios 
 Pueden ser:  
@@ -87,19 +88,20 @@ Estar matriculado/a en el curso académico en vigor y durante todo el período d
 No ser titulado/a, ni cumplir las condiciones para serlo, es decir, no tener el 100% de créditos de la 
 titulación ya superados. 
 • 
-Estar inscrito/a en la BD curricular a la hora de formalizar las prácticas 
-(https://aplicat.upv.es/siemeta-app/cv/index.xhtml). Inscríbete aquí. 
+Estar inscrito/a en la  (url: http://aplicat.upv.es/siemeta-app/cv/registroCV.xhtml)BD curricular (url: http://aplicat.upv.es/siemeta-app/cv/registroCV.xhtml) a la hora de formalizar las prácticas  (url: http://aplicat.upv.es/siemeta-app/cv/registroCV.xhtml)
+( (url: https://aplicat.upv.es/siemeta-app/cv/index.xhtml)https://aplicat.upv.es/siemeta-app/cv/index.xhtml (url: http://aplicat.upv.es/siemeta-app/cv/registroCV.xhtml) (url: https://aplicat.upv.es/siemeta-app/cv/index.xhtml)). Inscríbete  (url: https://aplicat.upv.es/siemeta-app/cv/index.xhtml) (url: https://aplicat.upv.es/siemeta-app/cv/index.xhtml)aquí (url: https://aplicat.upv.es/siemeta-app/cv/index.xhtml).  (url: https://aplicat.upv.es/siemeta-app/cv/index.xhtml)
 • 
-En el caso de prácticas curriculares, estar matriculado de los créditos que se desee reconocer: 
+En el caso de prácticas curriculares, estar matriculado de los créditos que se desee reconocer:  (url: https://aplicat.upv.es/siemeta-app/cv/index.xhtml) (url: https://aplicat.upv.es/siemeta-app/cv/index.xhtml)
+
  
  
  
 Escola Tècnica Superior d’Enginyeria Informàtica 
 Unidad de Prácticas en Empresa 
 Edificio 1G. Camí de Vera, s/n 46022 VALÈNCIA 
-Tel. +34 963 87 92 12 
-upe_inf@etsinf.upv.es 
-www.upv.es/entidades/etsinf  
+Tel. +34 963 87 92 12  (url: mailto:upe_inf@etsinf.upv.es)
+upe_inf@etsinf.upv.es  (url: mailto:upe_inf@etsinf.upv.es)
+www.upv.es/entidades/etsinf (url: mailto:upe_inf@etsinf.upv.es)  
 Matrícula y/o baja de prácticas externas. Ajustes de matrícula 
 Las Prácticas en Empresa en modalidad curricular, se formalizan matriculándose de la “asignatura” Prácticas 
 Externas. 
@@ -121,15 +123,16 @@ Ambos ajustes se realizan a través de la Intranet en Secretaría virtual>Solici
 Matrícula>Baja parcial>Ajuste prácticas externas. 
  
  
+
  
  
  
 Escola Tècnica Superior d’Enginyeria Informàtica 
 Unidad de Prácticas en Empresa 
 Edificio 1G. Camí de Vera, s/n 46022 VALÈNCIA 
-Tel. +34 963 87 92 12 
-upe_inf@etsinf.upv.es 
-www.upv.es/entidades/etsinf  
+Tel. +34 963 87 92 12  (url: mailto:upe_inf@etsinf.upv.es)
+upe_inf@etsinf.upv.es  (url: mailto:upe_inf@etsinf.upv.es)
+www.upv.es/entidades/etsinf (url: mailto:upe_inf@etsinf.upv.es)  
 Créditos y horas de prácticas de cada titulación 
 Titulación 
 Créditos curriculares = horas 
@@ -187,20 +190,21 @@ Humanidades Digitales
 Max. 4,5 ECTS = 112,5 horas   
 Max. 600 
  
+
  
  
  
 Escola Tècnica Superior d’Enginyeria Informàtica 
 Unidad de Prácticas en Empresa 
 Edificio 1G. Camí de Vera, s/n 46022 VALÈNCIA 
-Tel. +34 963 87 92 12 
-upe_inf@etsinf.upv.es 
-www.upv.es/entidades/etsinf  
+Tel. +34 963 87 92 12  (url: mailto:upe_inf@etsinf.upv.es)
+upe_inf@etsinf.upv.es  (url: mailto:upe_inf@etsinf.upv.es)
+www.upv.es/entidades/etsinf (url: mailto:upe_inf@etsinf.upv.es)  
 Mis créditos y horas disponibles 
 Para poder ver los créditos que tienes disponibles para la realización de prácticas en empresa: 
-1. Inscríbete en la base de datos curricular del SIE. Aquí. 
-2. Accede a “Calcula tu práctica”. Aquí. 
-3. Haz clic en “ESTUDIANTE AUTENTICADO”. 
+1. Inscríbete en la base de datos curricular del SIE.  (url: https://aplicat.upv.es/siemeta-app/cv/index.xhtml)Aquí (url: https://aplicat.upv.es/siemeta-app/cv/index.xhtml).  (url: https://aplicat.upv.es/siemeta-app/cv/index.xhtml)
+2. Accede a “Calcula tu práctica”.  (url: https://www.sie.upv.es/meta1b/Piniciocal.aspx?lang=ES)Aquí (url: https://www.sie.upv.es/meta1b/Piniciocal.aspx?lang=ES).  (url: https://www.sie.upv.es/meta1b/Piniciocal.aspx?lang=ES)
+3. Haz clic en “ESTUDIANTE AUTENTICADO”.  (url: https://www.sie.upv.es/meta1b/Piniciocal.aspx?lang=ES)
  
 Verás la información de tu perfil a efectos de prácticas en empresa. Ejemplo: 
  
@@ -214,21 +218,22 @@ Período de realización de prácticas.
 Desde el 1 de septiembre hasta el 31 agosto del siguiente año. 
 Como máximo, siempre y cuando el/la estudiante no se haya titulado antes, se podrán realizar prácticas 
 externas hasta el 31 de agosto. En el momento en el que se cumplen requisitos para titularse (presentar el 
+
  
  
  
 Escola Tècnica Superior d’Enginyeria Informàtica 
 Unidad de Prácticas en Empresa 
 Edificio 1G. Camí de Vera, s/n 46022 VALÈNCIA 
-Tel. +34 963 87 92 12 
-upe_inf@etsinf.upv.es 
-www.upv.es/entidades/etsinf  
+Tel. +34 963 87 92 12  (url: mailto:upe_inf@etsinf.upv.es)
+upe_inf@etsinf.upv.es  (url: mailto:upe_inf@etsinf.upv.es)
+www.upv.es/entidades/etsinf (url: mailto:upe_inf@etsinf.upv.es)  
 TFG/TFM y tener todos los créditos evaluados), se dejan de cumplir condiciones para realizar prácticas 
 externas y se debe rescindir el convenio. 
 Entrega de documentación 
 10 días antes de la fecha de inicio (como mínimo). 
-Vía e-mail a upe_inf@etsinf.upv.es 
-En el caso de prácticas en el extranjero, 30 días antes. Consulta a la Unidad de Prácticas en Empresa. 
+Vía e-mail a  (url: mailto:upe_inf@etsinf.upv.es)upe_inf@etsinf.upv.es (url: mailto:upe_inf@etsinf.upv.es)  (url: mailto:upe_inf@etsinf.upv.es)
+En el caso de prácticas en el extranjero, 30 días antes. Consulta a la Unidad de Prácticas en Empresa.  (url: mailto:upe_inf@etsinf.upv.es)
 Períodos especiales. Navidad, Fallas y Semana Santa 
 Consulta con la Unidad de Prácticas en Empresa cuándo se deben entregar los convenios con una fecha de 
 inicio durante, y una semana después, de estos períodos. 
@@ -255,15 +260,16 @@ a la Unidad de Prácticas en Empresa ETSINF.
 Empresa en el momento que se plantee. 
 5. La empresa ha de facilitar la asistencia a exámenes, o actividades académicas puntuales de obligado 
 cumplimiento, aunque el compromiso del alumno es informar a la empresa de estas circunstancias puntuales 
+
  
  
  
 Escola Tècnica Superior d’Enginyeria Informàtica 
 Unidad de Prácticas en Empresa 
 Edificio 1G. Camí de Vera, s/n 46022 VALÈNCIA 
-Tel. +34 963 87 92 12 
-upe_inf@etsinf.upv.es 
-www.upv.es/entidades/etsinf  
+Tel. +34 963 87 92 12  (url: mailto:upe_inf@etsinf.upv.es)
+upe_inf@etsinf.upv.es  (url: mailto:upe_inf@etsinf.upv.es)
+www.upv.es/entidades/etsinf (url: mailto:upe_inf@etsinf.upv.es)  
 con antelación suficiente y realizar el número de horas de prácticas que figuran en la documentación 
 formalizada y entre las fechas que allí figuren, y negociar con la empresa la recuperación de esas horas. 
 6. Límite semanal recomendado: 
@@ -273,14 +279,14 @@ formalizada y entre las fechas que allí figuren, y negociar con la empresa la r
 40 en periodo no lectivo. 
 PROCEDIMIENTO 
 Búsqueda de empresa 
-Primero, inscríbete en la base de datos curricular del SIE. Aquí. 
+Primero, inscríbete en la base de datos curricular del SIE.  (url: https://aplicat.upv.es/siemeta-app/cv/index.xhtml)Aquí (url: https://aplicat.upv.es/siemeta-app/cv/index.xhtml).  (url: https://aplicat.upv.es/siemeta-app/cv/index.xhtml)
 Tienes las siguientes vías para encontrar una empresa: 
 • 
 A través del portal web DIRE: 
 En «ACCESO A OFERTAS DE PRÁCTICAS» puedes consultar e inscribirte en las ofertas de prácticas de tu centro 
-y titulación: ACCESO A OFERTAS DE PRÁCTICAS 
+y titulación:  (url: https://www.upv.es/contenidos/siepract/ofertas/)ACCESO A OFERTAS DE PRÁCTICAS (url: https://www.upv.es/contenidos/siepract/ofertas/)  (url: https://www.upv.es/contenidos/siepract/ofertas/)
 • 
-A través de la app móvil MiUPV: 
+A través de la app móvil MiUPV:  (url: https://www.upv.es/contenidos/siepract/ofertas/)
 Desde la sección Servicio Integrado de Empleo, tendrás acceso al portal de empleo y practicas – DIRE. 
 • 
 Autocandidatura: 
@@ -298,27 +304,28 @@ Dedicación diaria/semanal
 • 
 Bolsa económica 
 2. Estudiante busca tutor/a UPV que calificará las prácticas: 
+
  
  
  
 Escola Tècnica Superior d’Enginyeria Informàtica 
 Unidad de Prácticas en Empresa 
 Edificio 1G. Camí de Vera, s/n 46022 VALÈNCIA 
-Tel. +34 963 87 92 12 
-upe_inf@etsinf.upv.es 
-www.upv.es/entidades/etsinf  
+Tel. +34 963 87 92 12  (url: mailto:upe_inf@etsinf.upv.es)
+upe_inf@etsinf.upv.es  (url: mailto:upe_inf@etsinf.upv.es)
+www.upv.es/entidades/etsinf (url: mailto:upe_inf@etsinf.upv.es)  
 • 
 Previo acuerdo, puede actuar como tutor/a de prácticas cualquier profesor/a de la ETSINF. 
 • 
 Existe además un listado de docentes de la Escuela que se han ofrecido a tutorizar prácticas en 
 empresa, y al que se accede desde la herramienta “calcula tu práctica” en el siguiente 
-enlace: https://www.sie.upv.es/meta1b/Piniciocal.aspx. (Con el botón estudiante autenticado)  
+enlace:  (url: https://www.sie.upv.es/meta1b/Piniciocal.aspx)https://www.sie.upv.es/meta1b/Piniciocal.aspx. (url: https://www.sie.upv.es/meta1b/Piniciocal.aspx) (Con el botón estudiante autenticado)   (url: https://www.sie.upv.es/meta1b/Piniciocal.aspx)
 • 
-En cualquiera de los dos casos, es recomendable que se contacte al tutor/a para contar con su 
+En cualquiera de los dos casos, es recomendable que se contacte al tutor/a para contar con su  (url: https://www.sie.upv.es/meta1b/Piniciocal.aspx)
 aprobación. 
-3. Generar el convenio de cooperación educativa en “Calcula tu práctica”. Consiste en una aplicación en la 
-que sólo hay que rellenar los datos acordados y demás condiciones de la práctica. Manual. 
-4. El convenio deberá firmarse ELECTRÓNICAMENTE (mediante certificado electrónico) por todos los 
+3. Generar el convenio de cooperación educativa en “ (url: http://www.sie.upv.es/calculatupractica)Calcula tu práctica (url: http://www.sie.upv.es/calculatupractica)”. Consiste en una aplicación en la  (url: http://www.sie.upv.es/calculatupractica)
+que sólo hay que rellenar los datos acordados y demás condiciones de la práctica.  (url: http://www.sie.upv.es/calculatupractica) (url: https://www.upv.es/entidades/etsinf/wp-content/uploads/2025/01/Manual-Calculadora-ESTUDIANTES-v4.pdf)Manual. (url: https://www.upv.es/entidades/etsinf/wp-content/uploads/2025/01/Manual-Calculadora-ESTUDIANTES-v4.pdf)  (url: https://www.upv.es/entidades/etsinf/wp-content/uploads/2025/01/Manual-Calculadora-ESTUDIANTES-v4.pdf)
+4. El convenio deberá firmarse ELECTRÓNICAMENTE (mediante certificado electrónico) por todos los  (url: https://www.upv.es/entidades/etsinf/wp-content/uploads/2025/01/Manual-Calculadora-ESTUDIANTES-v4.pdf)
 participantes: 
 • 
 Representante de empresa 
@@ -328,11 +335,11 @@ Tutor/a de empresa
 Tutor/a UPV 
 • 
 Estudiante 
-5. Envío del convenio a upe_inf@etsinf.upv.es, indicando en el asunto: «Nuevo Convenio – Fecha inicio 
-DD/MM/AAAA». Como mínimo 10 días naturales antes del inicio de las prácticas. (*) 
+5. Envío del convenio a  (url: mailto:upe_inf@etsinf.upv.es)upe_inf@etsinf.upv.es (url: mailto:upe_inf@etsinf.upv.es), indicando en el asunto: «Nuevo Convenio – Fecha inicio  (url: mailto:upe_inf@etsinf.upv.es)
+DD/MM/AAAA». Como mínimo 10 días naturales antes del inicio de las prácticas. (*)  (url: mailto:upe_inf@etsinf.upv.es)
 6. Si la práctica es curricular, el estudiante debe estar ya matriculado o matricularse inmediatamente de los 
-créditos. Instrucciones en Matrícula de Prácticas Externas (PE) en la sección Requisitos. 
-7. Alta Seguridad Social por parte de la empresa desde el inicio al final de las prácticas. 
+créditos. Instrucciones en  (url: https://www.upv.es/entidades/etsinf/estudiante-2-2/#_Matr%C3%ADcula_de_Pr%C3%A1cticas)Matrícula de Prácticas Externas (PE) (url: https://www.upv.es/entidades/etsinf/estudiante-2-2/#_Matr%C3%ADcula_de_Pr%C3%A1cticas) en la sección Requisitos.  (url: https://www.upv.es/entidades/etsinf/estudiante-2-2/#_Matr%C3%ADcula_de_Pr%C3%A1cticas)
+7. Alta Seguridad Social por parte de la empresa desde el inicio al final de las prácticas.  (url: https://www.upv.es/entidades/etsinf/estudiante-2-2/#_Matr%C3%ADcula_de_Pr%C3%A1cticas)
 Una vez tramitado el convenio, tanto la empresa como el estudiante recibirán una copia firmada por la 
 Vicerrectora de Empleo y Formación Permanente. 
 NOTAS IMPORTANTES: 
@@ -345,21 +352,22 @@ Pueden desarrollarse de forma presencial o a distancia. Si son a distancia, en e
 La Unidad de Prácticas en Empresa debe recibir el convenio firmado electrónicamente con al menos 
 10 días de antelación a la fecha de inicio. 
 Cuidado con el botón “Lo antes posible” junto a la fecha de inicio que aparece en “Calcula tu práctica”. 
+
  
  
  
 Escola Tècnica Superior d’Enginyeria Informàtica 
 Unidad de Prácticas en Empresa 
 Edificio 1G. Camí de Vera, s/n 46022 VALÈNCIA 
-Tel. +34 963 87 92 12 
-upe_inf@etsinf.upv.es 
-www.upv.es/entidades/etsinf  
+Tel. +34 963 87 92 12  (url: mailto:upe_inf@etsinf.upv.es)
+upe_inf@etsinf.upv.es  (url: mailto:upe_inf@etsinf.upv.es)
+www.upv.es/entidades/etsinf (url: mailto:upe_inf@etsinf.upv.es)  
  
 Si se hace clic en dicho botón se debe entregar el convenio ya compilado y firmado por los tutores, el 
 representante de la empresa y por el estudiante ESE MISMO DÍA. Se suele necesitar más de un día para tener 
 el convenio confeccionado y firmado. 
 (*) En el caso de prácticas en el extranjero, la documentación se debe enviar 30 días antes de la fecha de 
-inicio. Además, se debe contratar un seguro privado. Ver este link. Consulta a la Unidad de Prácticas en 
+inicio. Además, se debe contratar un seguro privado. Ver este  (url: https://www.upv.es/contenidos/siepract/otros-tramites/)link (url: https://www.upv.es/contenidos/siepract/otros-tramites/). Consulta a la Unidad de Prácticas en  (url: https://www.upv.es/contenidos/siepract/otros-tramites/)
 Empresa – ETSINF. 
 Para realizar el TFG/TFM durante la práctica, el/la tutor/a UPV del convenio de prácticas debe coincidir con 
 el tutor UPV que conste en la formalización de aprobación del título del TFG/TFM. 
@@ -384,16 +392,17 @@ evaluación a través de la intranet UPV en el panel Servicios >Servicio Integra
 Prácticas en Empresas. 
 Justiﬁcante de prácticas 
 Una vez finalizada y evaluada una práctica, todas las partes pueden obtener un justificante de participación 
-en el programa de prácticas en empresa. Pulsa aquí. 
+en el programa de prácticas en empresa. Pulsa  (url: https://www.upv.es/contenidos/siepract/justificante-de-practicas/)aquí (url: https://www.upv.es/contenidos/siepract/justificante-de-practicas/).  (url: https://www.upv.es/contenidos/siepract/justificante-de-practicas/)
+
  
  
  
 Escola Tècnica Superior d’Enginyeria Informàtica 
 Unidad de Prácticas en Empresa 
 Edificio 1G. Camí de Vera, s/n 46022 VALÈNCIA 
-Tel. +34 963 87 92 12 
-upe_inf@etsinf.upv.es 
-www.upv.es/entidades/etsinf  
+Tel. +34 963 87 92 12  (url: mailto:upe_inf@etsinf.upv.es)
+upe_inf@etsinf.upv.es  (url: mailto:upe_inf@etsinf.upv.es)
+www.upv.es/entidades/etsinf (url: mailto:upe_inf@etsinf.upv.es)  
 Ampliación. Modiﬁcación. Cancelación/Rescisión. 
 Ampliación o prórroga de prácticas ya comenzadas. 
 Si a la empresa y estudiante le interesa ampliar las prácticas se debe presentar un nuevo convenio 
@@ -411,38 +420,39 @@ Tutores. Se puede sustituir o añadir un cotutor.
 Proyecto formativo 
 No se puede modificar la fecha de inicio y la fecha de fin de la práctica. Para estos cambios se deberá 
 rescindir el convenio en curso y gestionar uno nuevo. 
-La modificación cumplimentada y firmada con la firma electrónica de todos los participantes se 
-enviará por e-mail a la Unidad de Prácticas en Empresa (upe_inf@etsinf.upv.es), como mínimo 10 
-días antes de la modificación que se desee realizar. Documento de modificación aquí. 
+La  (url: https://www.upv.es/contenidos/siepract/download/17499/)modificación (url: https://www.upv.es/contenidos/siepract/download/17499/) cumplimentada y firmada con la firma electrónica de todos los participantes se  (url: https://www.upv.es/contenidos/siepract/download/17499/)
+enviará por e-mail a la Unidad de Prácticas en Empresa (upe_inf@etsinf.upv.es), como mínimo 10  (url: https://www.upv.es/contenidos/siepract/download/17499/)
+días antes de la modificación que se desee realizar. Documento de modificación  (url: https://www.upv.es/contenidos/siepract/download/17499/)aquí (url: https://www.upv.es/contenidos/siepract/download/17499/).  (url: https://www.upv.es/contenidos/siepract/download/17499/)
 Rescisión o cancelación de un convenio 
 En ocasiones, las prácticas se deben rescindir cuando media un motivo justificado. 
-En tal caso, se debe enviar el documento de rescisión cumplimentado y firmado con la firma 
+En tal caso, se debe enviar el  (url: https://www.upv.es/contenidos/siepract/download/17497/)documento de rescisión (url: https://www.upv.es/contenidos/siepract/download/17497/) cumplimentado y firmado con la firma  (url: https://www.upv.es/contenidos/siepract/download/17497/)
 electrónica 
 de 
 todos 
 los 
-participantes 
-a 
-la 
-Unidad 
+participantes  (url: https://www.upv.es/contenidos/siepract/download/17497/)
+a  (url: https://www.upv.es/contenidos/siepract/download/17497/)
+la  (url: https://www.upv.es/contenidos/siepract/download/17497/)
+Unidad  (url: https://www.upv.es/contenidos/siepract/download/17497/)
 de 
 Prácticas 
 en 
 Empresa 
-(upe_inf@etsinf.upv.es). Documento de rescisión aquí. 
-Se recomienda enviarlo en un plazo de 7 días naturales. 
+(upe_inf@etsinf.upv.es). Documento de rescisión  (url: https://www.upv.es/contenidos/siepract/download/17497/)aquí (url: https://www.upv.es/contenidos/siepract/download/17497/).  (url: https://www.upv.es/contenidos/siepract/download/17497/)
+Se recomienda enviarlo en un plazo de 7 días naturales.  (url: https://www.upv.es/contenidos/siepract/download/17497/)
  
  
  
+
  
  
  
 Escola Tècnica Superior d’Enginyeria Informàtica 
 Unidad de Prácticas en Empresa 
 Edificio 1G. Camí de Vera, s/n 46022 VALÈNCIA 
-Tel. +34 963 87 92 12 
-upe_inf@etsinf.upv.es 
-www.upv.es/entidades/etsinf  
+Tel. +34 963 87 92 12  (url: mailto:upe_inf@etsinf.upv.es)
+upe_inf@etsinf.upv.es  (url: mailto:upe_inf@etsinf.upv.es)
+www.upv.es/entidades/etsinf (url: mailto:upe_inf@etsinf.upv.es)  
 Información especíﬁca por titulaciones 
 Grado en Ingeniería Informática 
 Curriculares:  
@@ -479,15 +489,16 @@ la Unidad de Prácticas en Empresa o con el Director Académico del Título para
 Curriculares:  
 • 
 Tener todo 1º aprobado. 
+
  
  
  
 Escola Tècnica Superior d’Enginyeria Informàtica 
 Unidad de Prácticas en Empresa 
 Edificio 1G. Camí de Vera, s/n 46022 VALÈNCIA 
-Tel. +34 963 87 92 12 
-upe_inf@etsinf.upv.es 
-www.upv.es/entidades/etsinf  
+Tel. +34 963 87 92 12  (url: mailto:upe_inf@etsinf.upv.es)
+upe_inf@etsinf.upv.es  (url: mailto:upe_inf@etsinf.upv.es)
+www.upv.es/entidades/etsinf (url: mailto:upe_inf@etsinf.upv.es)  
 • 
 Máx. 450 horas (18 ECTS). 
 • 
@@ -520,15 +531,16 @@ Prácticas Curriculares: Forman parte de la optatividad. Máx. 4,5 ECTS = 112,5 
 MATERIA: “Transformación Digital del Patrimonio”. 
 Prácticas Extracurriculares: Máx. según normativa UPV: 600 horas. 
  
+
  
  
  
 Escola Tècnica Superior d’Enginyeria Informàtica 
 Unidad de Prácticas en Empresa 
 Edificio 1G. Camí de Vera, s/n 46022 VALÈNCIA 
-Tel. +34 963 87 92 12 
-upe_inf@etsinf.upv.es 
-www.upv.es/entidades/etsinf  
+Tel. +34 963 87 92 12  (url: mailto:upe_inf@etsinf.upv.es)
+upe_inf@etsinf.upv.es  (url: mailto:upe_inf@etsinf.upv.es)
+www.upv.es/entidades/etsinf (url: mailto:upe_inf@etsinf.upv.es)  
 Otros programas y servicios 
 Estudiantes 
 Prácticas en el extranjero (CON AYUDAS) 
@@ -537,23 +549,23 @@ Erasmus+ prácticas. Estancias de un mínimo de 2 meses. Se han de solicitar sie
 aunque la estancia se puede realizar también ya como titulado/a (dentro del año natural posterior a 
 la fecha de la titulación). Ver convocatoria en aplicación AIRE a través de la intranet. 
 • 
-Vulcanus (UE-Japón) http://www.eu-japan.eu/vulcanus-japan-0 
+Vulcanus (UE-Japón)  (url: http://www.eu-japan.eu/vulcanus-japan-0)http://www.eu-japan.eu/vulcanus-japan-0 (url: http://www.eu-japan.eu/vulcanus-japan-0)  (url: http://www.eu-japan.eu/vulcanus-japan-0)
 • 
-Programas de empresas (summer jobs/internships, ofertados por las propias empresas, ver Blog de 
-Relaciones con Empresas ETSINF: https://empretsinf.blogs.upv.es/) 
+Programas de empresas  (url: http://www.eu-japan.eu/vulcanus-japan-0)(summer jobs/internships, ofertados por las propias empresas, ver Blog de  (url: http://www.eu-japan.eu/vulcanus-japan-0)
+Relaciones con Empresas ETSINF:  (url: https://empretsinf.blogs.upv.es/)https://empretsinf.blogs.upv.es/ (url: https://empretsinf.blogs.upv.es/))  (url: https://empretsinf.blogs.upv.es/)
 Titulados 
 • 
-Prácticas para titulados en el Extranjero – (SIE): http://www.upv.es/contenidos/SIEPEXT/ 
+Prácticas para titulados en el Extranjero – (SIE):  (url: http://www.upv.es/contenidos/SIEPEXT/)http://www.upv.es/contenidos/SIEPEXT/ (url: http://www.upv.es/contenidos/SIEPEXT/)  (url: http://www.upv.es/contenidos/SIEPEXT/)
 • 
-Becas ICEX: http://www.icex.es/ 
+Becas ICEX:  (url: http://www.icex.es/)http://www.icex.es/ (url: http://www.icex.es/)  (url: http://www.icex.es/)
 Otros servicios 
 • 
 Orientación profesional y formación para el empleo: cursos, talleres, tutorías individuales 
-(https://www.upv.es/contenidos/sieemple/) 
+( (url: https://www.upv.es/contenidos/sieemple/)https://www.upv.es/contenidos/sieemple/ (url: https://www.upv.es/contenidos/sieemple/))  (url: https://www.upv.es/contenidos/sieemple/)
 • 
-Gestión de empleo: Para los Titulados, que buscan empleo, la UPV ofrece una base de datos en la 
+Gestión de empleo:  (url: https://www.upv.es/contenidos/sieemple/)Para los Titulados, que buscan empleo, la UPV ofrece una base de datos en la  (url: https://www.upv.es/contenidos/sieemple/)
 que pueden inscribirse y mantener activada su alta a lo largo de toda su vida profesional de forma 
-gratuita (http://www.upv.es/contenidos/SIEEMPLE/) 
+gratuita ( (url: http://www.upv.es/contenidos/SIEEMPLE/)http://www.upv.es/contenidos/SIEEMPLE/ (url: http://www.upv.es/contenidos/SIEEMPLE/))  (url: http://www.upv.es/contenidos/SIEEMPLE/)
 Otras actividades 
 • 
 Difusión por mailing directo a alumnado ETSINF y por perfiles ETSINF (web, redes sociales, blog 
@@ -561,3 +573,4 @@ Relaciones con Empresas).
  
  
  
+
