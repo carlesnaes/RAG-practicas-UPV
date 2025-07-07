@@ -9,25 +9,38 @@ def get_memory():
     return ConversationBufferWindowMemory(
         memory_key="chat_history",
         return_messages=True,
-        output_key="answer", 
+        output_key="answer",
         k=5
     )
 
-def crear_rag_chain(vectorstore, memory, custom_prompt):
+
+def crear_rag_chain(vectorstore, memory, custom_prompt, role: str):
+    """
+    Crea una cadena RAG para el rol dado ("estudiante" o "empresa").
+    Filtra los documentos por metadata['role'] antes de la recuperación.
+    """
     llm = ChatOpenAI(model="gpt-3.5-turbo", temperature=0.3)
+
+    retriever = vectorstore.as_retriever(
+        search_type="mmr",
+        search_kwargs={
+            "k": 10,
+            "fetch_k": 30,
+            "lambda_mult": 0.3,
+            "filter": {"role": role}
+        }
+    )
 
     rag_chain = ConversationalRetrievalChain.from_llm(
         llm=llm,
-        retriever=vectorstore.as_retriever(
-            search_type="mmr",
-            search_kwargs={"k": 10, "fetch_k": 30, "lambda_mult": 0.3}
-        ),
+        retriever=retriever,
         memory=memory,
         return_source_documents=True,
-        output_key="answer",  
+        output_key="answer",
         combine_docs_chain_kwargs={"prompt": custom_prompt}
     )
     return rag_chain
+
 
 
 
