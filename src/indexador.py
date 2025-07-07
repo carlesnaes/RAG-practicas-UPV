@@ -6,9 +6,12 @@ from langchain.vectorstores import FAISS
 from langchain.embeddings import HuggingFaceEmbeddings
 from langchain.schema import Document
 from langchain.text_splitter import RecursiveCharacterTextSplitter
+from langchain.embeddings import OpenAIEmbeddings
+
 
 from man_chunks import cargar_chunks_manual
 from loader import cargar_documentos_y_tabla
+
 
 
 def scrape_empresa(url: str, role: str):
@@ -31,7 +34,7 @@ def scrape_empresa(url: str, role: str):
             class_=lambda c: c and ("acordeon__body" in c or "closed" in c)
         )
 
-        # 🔥 Sustituye cada enlace embebido <a> por: Texto visible (URL)
+        #  Sustituye cada enlace embebido <a> por: Texto visible (URL)
         for a in body.find_all("a", href=True):
             link_text = a.get_text(strip=True)
             href = a['href']
@@ -53,13 +56,49 @@ def scrape_empresa(url: str, role: str):
     )
     return splitter.split_documents(raw_docs)
 
+def scrape_siepract_estudiantes(url: str, role: str):
+    """
+    Extrae contenido de la web SIE prácticas para estudiantes y devuelve chunks con metadata.
+    """
+    headers = {"User-Agent": "Mozilla/5.0"}
+    resp = requests.get(url, headers=headers, timeout=15)
+    resp.raise_for_status()
+
+    soup = BeautifulSoup(resp.text, "html.parser")
+    raw_text = ""
+
+    # Intenta encontrar el bloque principal de contenido
+    main_content = soup.find("div", class_="contenido") or soup.find("main") or soup.body
+    if main_content:
+        raw_text = main_content.get_text("\n", strip=True)
+    else:
+        print("⚠️ No se encontró un bloque principal. Extrayendo texto plano.")
+        raw_text = soup.get_text("\n", strip=True)
+
+    document = Document(
+        page_content=raw_text,
+        metadata={"source": url, "role": role}
+    )
+
+    # Dividir en chunks
+    splitter = RecursiveCharacterTextSplitter(
+        chunk_size=1000,
+        chunk_overlap=250,
+        separators=["\n\n", "\n", " ", ""]
+    )
+    return splitter.split_documents([document])
+
+
 
 def construir_o_cargar_indice(ruta_directorio: str = "faiss_index") -> FAISS:
     # Configurar embeddings
-    embeddings = HuggingFaceEmbeddings(
-        model_name="sentence-transformers/all-mpnet-base-v2",
-        model_kwargs={"device": "cpu"}
+    from langchain.embeddings import OpenAIEmbeddings
+
+    embeddings = OpenAIEmbeddings(
+        model="text-embedding-ada-002",
+        openai_api_key=os.getenv("OPENAI_API_KEY")
     )
+
 
     # Si ya existe el índice, cargarlo
     if os.path.exists(ruta_directorio):
@@ -88,6 +127,11 @@ def construir_o_cargar_indice(ruta_directorio: str = "faiss_index") -> FAISS:
         role="estudiante"
     )
     docs_est += cargar_chunks_manual(role="estudiante")
+
+    docs_est += scrape_siepract_estudiantes(
+        url="https://www.upv.es/contenidos/siepract/practicas-en-entidades-upv/",
+        role="estudiante"
+    )
 
     # Carga y chunkeo para empresa
     docs_emp = cargar_documentos_y_tabla(

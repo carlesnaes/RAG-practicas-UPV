@@ -186,5 +186,19 @@ def cargar_chunks_manual(role):
     metadata={"source": "manual", "categoria": "convenio_calcula_practica"}
     ))
 
+    # Chunk 16: Prácticas extracurriculares
+    docs.append(Document(
+    page_content=(
+        "Requisitos para realizar prácticas extracurriculares: Para poder realizar prácticas extracurriculares en la Universitat Politècnica de València (UPV), "
+        "el estudiante debe haber superado al menos el 50% de los créditos de su titulación. "
+        "Esto significa que no se pueden realizar prácticas extracurriculares en los primeros cursos del grado o doble grado. "
+        "Por ejemplo, en un grado de 4 años no se alcanza el 50% hasta aproximadamente el tercer curso, "
+        "y en un doble grado de 5 años no se alcanza hasta haber superado dos años y medio de estudios. "
+        "Además, es imprescindible estar matriculado durante todo el periodo de prácticas y no haber finalizado la titulación ni superado el 100% de los créditos."
+    ),
+    metadata={"source": "manual", "categoria": "practicas_extracurriculares", "role": role}
+    ))
+
+
 
     return docs

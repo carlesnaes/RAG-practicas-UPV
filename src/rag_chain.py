@@ -10,7 +10,7 @@ def get_memory():
         memory_key="chat_history",
         return_messages=True,
         output_key="answer",
-        k=5
+        k=4
     )
 
 
@@ -19,14 +19,14 @@ def crear_rag_chain(vectorstore, memory, custom_prompt, role: str):
     Crea una cadena RAG para el rol dado ("estudiante" o "empresa").
     Filtra los documentos por metadata['role'] antes de la recuperación.
     """
-    llm = ChatOpenAI(model="gpt-3.5-turbo", temperature=0.3)
+    llm = ChatOpenAI(model="gpt-3.5-turbo", temperature=0.2)
 
     retriever = vectorstore.as_retriever(
         search_type="mmr",
         search_kwargs={
-            "k": 10,
-            "fetch_k": 30,
-            "lambda_mult": 0.3,
+            "k": 15,
+            "fetch_k": 40,
+            "lambda_mult": 0.5,
             "filter": {"role": role}
         }
     )
