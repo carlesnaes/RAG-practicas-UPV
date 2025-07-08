@@ -74,12 +74,14 @@ def cargar_documentos_y_tabla(archivos_pdf, ruta_tabla_pdf, role):
                 extracurriculares = fila[2].strip()
                 contenido = (
                     f"Información oficial sobre el número de horas de prácticas permitidas en la titulación de {titulacion}, según la normativa de la Universitat Politècnica de València (UPV). "
-                    f"Los estudiantes matriculados en este grado o máster pueden realizar prácticas externas en dos modalidades: prácticas curriculares y prácticas extracurriculares. "
-                    f"Las prácticas curriculares están limitadas a {curriculares}, y forman parte del plan de estudios oficial, computando créditos ECTS. "
-                    f"En cambio, las prácticas extracurriculares, que son voluntarias y no curriculares, tienen un máximo de {extracurriculares}. "
+                    f"Los estudiantes matriculados en este grado o máster pueden realizar prácticas externas en "
+                    f"{'modalidad prácticas extracurriculares' if 'doble grado' in titulacion.lower() else 'dos modalidades: prácticas curriculares y prácticas extracurriculares'}. "
+                    f"{'' if 'doble grado' in titulacion.lower() else f'Las prácticas curriculares están limitadas a {curriculares}, y forman parte del plan de estudios oficial, computando créditos ECTS. '} "
+                    f"Las prácticas extracurriculares, que {'son voluntarias' if 'doble grado' in titulacion.lower() else 'son voluntarias y no curriculares'}, tienen un máximo de {extracurriculares}. "
                     f"Estas cifras representan el tope de horas que un estudiante puede realizar en cada tipo de práctica. "
                     f"Esta información está basada en la tabla oficial de equivalencia de créditos y horas por titulación, y es válida para la planificación de las prácticas en empresa."
                 )
+
                 doc = Document(
                     page_content=contenido,
                     metadata={
