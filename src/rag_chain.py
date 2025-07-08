@@ -5,6 +5,7 @@ from reranker import rerank_documents
 from langchain.schema import AIMessage
 
 
+
 def get_memory():
     return ConversationBufferWindowMemory(
         memory_key="chat_history",

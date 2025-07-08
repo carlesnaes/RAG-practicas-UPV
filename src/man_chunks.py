@@ -156,7 +156,8 @@ def cargar_chunks_manual(role):
         page_content=(
             "Los estudiantes matriculados en segundo curso o en cursos superiores de un grado simple de la UPV pueden realizar prácticas curriculares, "
             "siempre que hayan superado completamente todas las asignaturas del primer curso del grado. "
-            "Este requisito es obligatorio para poder acceder a las prácticas curriculares, independientemente del curso superior en el que se encuentren."
+            "Este requisito es obligatorio únicamente para poder acceder a las prácticas curriculares, "
+            "pero las prácticas curriculares no son obligatorias en ningún grado de la ETSINF. Su realización es siempre opcional."
         ),
         metadata={"source": "manual", "categoria": "practicas_curriculares", "role": role}
     ))
@@ -166,7 +167,6 @@ def cargar_chunks_manual(role):
         page_content=(
             "La Universitat Politècnica de València (UPV) se encuentra en España, por tanto, la tramitación de prácticas en todos los demás países que no son España, como por ejemplo Francia, Alemania o cualquier país, se considera práctica en el extranjero. "
             "Para este tipo de prácticas, la normativa establece requisitos específicos: la documentación debe entregarse con al menos 30 días de antelación a la fecha de inicio de la práctica. "
-            "Si la práctica en el extranjero tiene fecha de inicio entre el 26 de julio y el 10 de septiembre, la documentación debe entregarse como muy tarde el 16 de julio, ya que el mes de agosto es inhábil para la tramitación administrativa. "
             "Además, es obligatorio contratar un seguro privado que cubra la estancia en el extranjero y consultar con la Unidad de Prácticas cualquier particularidad del destino. "
             "Respecto al seguro, es importante mencionar que visites este documento para tener toda la información necesaria: https://www.upv.es/contenidos/siepract/download/17801/"
         ),

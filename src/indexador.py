@@ -59,6 +59,7 @@ def scrape_empresa(url: str, role: str):
 def scrape_siepract_estudiantes(url: str, role: str):
     """
     Extrae contenido de la web SIE prácticas para estudiantes y devuelve chunks con metadata.
+    Añade un encabezado fijo a todos los chunks para dar contexto.
     """
     headers = {"User-Agent": "Mozilla/5.0"}
     resp = requests.get(url, headers=headers, timeout=15)
@@ -86,7 +87,19 @@ def scrape_siepract_estudiantes(url: str, role: str):
         chunk_overlap=250,
         separators=["\n\n", "\n", " ", ""]
     )
-    return splitter.split_documents([document])
+    chunks = splitter.split_documents([document])
+
+    # 🔥 Añadir encabezado a cada chunk
+    encabezado = (
+        "⚠️⚠️ Esta información aplica únicamente cuando la Universitat Politècnica de València (UPV) actúa como empresa colaboradora para las prácticas, no sirve para las empresas externas a la UPV.")
+
+    for chunk in chunks:
+        chunk.page_content = encabezado + chunk.page_content
+
+    return chunks
+
+
+
 
 
 
