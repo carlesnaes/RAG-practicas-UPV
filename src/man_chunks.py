@@ -199,6 +199,35 @@ def cargar_chunks_manual(role):
     metadata={"source": "manual", "categoria": "practicas_extracurriculares", "role": role}
     ))
 
+    # Prácticas en la propia UPV
+    docs.append(Document(
+    page_content=(
+        "⚠️ Este procedimiento aplica exclusivamente a prácticas en las que la Universitat Politècnica de València (UPV) actúa como entidad colaboradora, es decir, cuando la práctica se realiza en una unidad, departamento o servicio de la propia UPV. "
+        "⚠️ MUY IMPORTANTE: Este procedimiento y los 5 documentos solo aplican cuando la Universitat Politècnica de València (UPV) actúa como entidad colaboradora (prácticas en unidades o departamentos de la UPV). 🚫 NO aplican a prácticas en empresas externas ni a entidades colaboradoras ajenas a la UPV."
+        "Una vez aceptada la práctica por la Comisión de Evaluación de las prácticas UPV, se puede formalizar la práctica del estudiante seleccionado. "
+        "Para formalizar la práctica es necesario enviar por email los siguientes 5 documentos correctamente cumplimentados y firmados electrónicamente, al menos 10 días antes del inicio de la práctica: "
+        "1) Compromiso presupuestario del responsable, "
+        "2) Convenio de prácticas, "
+        "3) Documento 'Datos' del estudiante, "
+        "4) Documento 'Seguro' del estudiante, "
+        "5) Fotocopia del DNI/NIE del estudiante. "
+        "⚠️ IMPORTANTE: No es posible tramitar una práctica hasta que haya sido aceptada previamente por la Comisión de Evaluación de las prácticas UPV."
+    ),
+    metadata={"source": "manual", "categoria": "upv_entidad_colaboradora", "role": role}
+    ))
+
+
+    docs.append(Document(
+    page_content=(
+        "Para prácticas en empresas externas (entidades privadas o públicas ajenas a la Universitat Politècnica de València), "
+        "no se requieren los 5 documentos específicos que aplican cuando la UPV actúa como entidad colaboradora. "
+        "En estos casos, basta con formalizar el convenio de cooperación educativa entre la empresa, el estudiante y la UPV, y designar un tutor o tutora en la empresa."
+    ),
+    metadata={"categoria": "empresa_externa", "role": role}
+    ))
+
+
+
 
 
     return docs

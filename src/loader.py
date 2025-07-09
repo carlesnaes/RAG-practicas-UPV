@@ -34,28 +34,33 @@ def extraer_texto_pdf(ruta_pdf):
     return texto
 
 
-def cargar_documentos_y_tabla(archivos_pdf, ruta_tabla_pdf, role):
+def cargar_documentos_y_tabla(archivos_pdf, ruta_tabla_pdf, role, solo_tabla=False):
     docs = []
-    # Procesar archivos PDF genéricos
-    for ruta_pdf, nombre_txt in archivos_pdf:
-        texto = extraer_texto_pdf(ruta_pdf)
-        with open(f"./Datos/{nombre_txt}", "w", encoding="utf-8") as f:
-            f.write(texto)
 
-        loader = TextLoader(f"./Datos/{nombre_txt}", encoding="utf-8")
-        loaded = loader.load()
-        for doc in loaded:
-            doc.metadata["source"] = nombre_txt
-            doc.metadata["role"] = role
-        docs.extend(loaded)
+    if not solo_tabla:
+        # Procesar archivos PDF genéricos (extraer texto completo y dividir en chunks)
+        for ruta_pdf, nombre_txt in archivos_pdf:
+            texto = extraer_texto_pdf(ruta_pdf)
+            with open(f"./Datos/{nombre_txt}", "w", encoding="utf-8") as f:
+                f.write(texto)
 
-    # Dividir en chunks
-    splitter = RecursiveCharacterTextSplitter(
-        chunk_size=750,
-        chunk_overlap=200,
-        separators=["\n\n", "\n", " ", ""]
-    )
-    text_chunks = splitter.split_documents(docs)
+            loader = TextLoader(f"./Datos/{nombre_txt}", encoding="utf-8")
+            loaded = loader.load()
+            for doc in loaded:
+                doc.metadata["source"] = nombre_txt
+                doc.metadata["role"] = role
+            docs.extend(loaded)
+
+        # Dividir en chunks
+        splitter = RecursiveCharacterTextSplitter(
+            chunk_size=750,
+            chunk_overlap=200,
+            separators=["\n\n", "\n", " ", ""]
+        )
+        text_chunks = splitter.split_documents(docs)
+    else:
+        # Si solo_tabla=True, no añadir texto ni generar chunks
+        text_chunks = []
 
     # Procesar tabla de créditos-horas si existe
     tabla_docs = []
@@ -75,10 +80,9 @@ def cargar_documentos_y_tabla(archivos_pdf, ruta_tabla_pdf, role):
                 contenido = (
                     f"Información oficial sobre el número de horas de prácticas permitidas en la titulación de {titulacion}, según la normativa de la Universitat Politècnica de València (UPV). "
                     f"Los estudiantes matriculados en este grado o máster pueden realizar prácticas externas en "
-                    f"{'modalidad prácticas extracurriculares' if 'doble grado' in titulacion.lower() else 'dos modalidades: prácticas curriculares y prácticas extracurriculares'}. "
+                    f"{'modalidad prácticas extracurriculares' if 'doble grado' in titulacion.lower() else 'dos modalidades: prácticas curriculares y extracurriculares'}. "
                     f"{'' if 'doble grado' in titulacion.lower() else f'Las prácticas curriculares están limitadas a {curriculares}, y forman parte del plan de estudios oficial, computando créditos ECTS. '} "
-                    f"Las prácticas extracurriculares, que {'son voluntarias' if 'doble grado' in titulacion.lower() else 'son voluntarias y no curriculares'}, tienen un máximo de {extracurriculares}. "
-                    f"Estas cifras representan el tope de horas que un estudiante puede realizar en cada tipo de práctica. "
+                    f"Las extracurriculares, que {'son voluntarias' if 'doble grado' in titulacion.lower() else 'son voluntarias y no curriculares'}, tienen un máximo de {extracurriculares}. "
                     f"Esta información está basada en la tabla oficial de equivalencia de créditos y horas por titulación, y es válida para la planificación de las prácticas en empresa."
                 )
 
@@ -90,5 +94,8 @@ def cargar_documentos_y_tabla(archivos_pdf, ruta_tabla_pdf, role):
                     }
                 )
                 tabla_docs.append(doc)
+
+    return text_chunks + tabla_docs
+
 
     return text_chunks + tabla_docs
