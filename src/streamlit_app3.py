@@ -5,9 +5,12 @@ from dotenv import load_dotenv
 from datetime import datetime as dt
 from langchain.prompts import PromptTemplate
 import openai
+from langchain.schema import Document
+
 
 from indexador import construir_o_cargar_indice
 from rag_chain import get_memory, crear_rag_chain
+
 
 
 st.set_page_config(page_title="Asistente UPV", page_icon="🎓", layout="centered")
@@ -81,6 +84,7 @@ for msg in st.session_state.messages:
 
 tab_text, tab_voice = st.tabs(["✏️ Texto", "🎤 Voz"])
 
+
 with tab_text:
     if user_text := st.chat_input("Escribe tu pregunta..."):
         st.session_state.messages.append({
@@ -132,6 +136,7 @@ with tab_voice:
                     out = rag_chain.invoke({"question": transcript})
                     answer = out.get("answer", "⚠️ Sin respuesta.")
                     docs = out.get("source_documents", [])
+
                 except Exception as e:
                     answer = f"⚠️ Error: {e}"
                     docs = []
