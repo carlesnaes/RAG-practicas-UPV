@@ -199,33 +199,112 @@ def cargar_chunks_manual(role):
     metadata={"source": "manual", "categoria": "practicas_extracurriculares", "role": role}
     ))
 
-    # Prácticas en la propia UPV
+    # Chunk 17: Prácticas en la propia UPV
     docs.append(Document(
     page_content=(
-        "⚠️ Este procedimiento aplica exclusivamente a prácticas en las que la Universitat Politècnica de València (UPV) actúa como entidad colaboradora, es decir, cuando la práctica se realiza en una unidad, departamento o servicio de la propia UPV. "
-        "⚠️ MUY IMPORTANTE: Este procedimiento y los 5 documentos solo aplican cuando la Universitat Politècnica de València (UPV) actúa como entidad colaboradora (prácticas en unidades o departamentos de la UPV). 🚫 NO aplican a prácticas en empresas externas ni a entidades colaboradoras ajenas a la UPV."
-        "Una vez aceptada la práctica por la Comisión de Evaluación de las prácticas UPV, se puede formalizar la práctica del estudiante seleccionado. "
-        "Para formalizar la práctica es necesario enviar por email los siguientes 5 documentos correctamente cumplimentados y firmados electrónicamente, al menos 10 días antes del inicio de la práctica: "
+        "⚠️ Este procedimiento aplica únicamente a prácticas en las que la Universitat Politècnica de València (UPV) actúa como entidad colaboradora, es decir, cuando la práctica se realiza en una unidad, departamento o servicio de la propia UPV. "
+        "🚫 Este procedimiento NO aplica a la mayoría de las prácticas externas realizadas en empresas externas. "
+        "Solo en estos casos específicos dentro de la UPV es necesario enviar por email los siguientes 5 documentos correctamente cumplimentados y firmados electrónicamente, al menos 10 días antes del inicio de la práctica: "
         "1) Compromiso presupuestario del responsable, "
         "2) Convenio de prácticas, "
         "3) Documento 'Datos' del estudiante, "
         "4) Documento 'Seguro' del estudiante, "
-        "5) Fotocopia del DNI/NIE del estudiante. "
-        "⚠️ IMPORTANTE: No es posible tramitar una práctica hasta que haya sido aceptada previamente por la Comisión de Evaluación de las prácticas UPV."
+        "5) Fotocopia del DNI/NIE del estudiante."
     ),
     metadata={"source": "manual", "categoria": "upv_entidad_colaboradora", "role": role}
     ))
 
 
+    # Chunk 18: Prácticas en empresa externa
     docs.append(Document(
     page_content=(
-        "Para prácticas en empresas externas (entidades privadas o públicas ajenas a la Universitat Politècnica de València), "
-        "no se requieren los 5 documentos específicos que aplican cuando la UPV actúa como entidad colaboradora. "
-        "En estos casos, basta con formalizar el convenio de cooperación educativa entre la empresa, el estudiante y la UPV, y designar un tutor o tutora en la empresa."
+        "En la Universitat Politècnica de València (UPV), la mayoría de las prácticas externas se realizan en empresas externas (entidades privadas o públicas ajenas a la UPV). "
+        "En estos casos, no se requieren los 5 documentos específicos que aplican cuando la UPV actúa como entidad colaboradora. "
+        "El procedimiento general consiste en formalizar un convenio de cooperación educativa entre la empresa, el estudiante y la UPV, y designar un tutor o tutora en la empresa. "
+        "⚠️ Este es el procedimiento habitual salvo que la práctica se realice en una unidad, departamento o servicio interno de la UPV."
     ),
-    metadata={"categoria": "empresa_externa", "role": role}
+    metadata={"source": "manual", "categoria": "empresa_externa", "role": role}
     ))
 
+    # Chunk 19: Compatibilidad entre trabajo y prácticas
+    docs.append(Document(
+    page_content=(
+        "Un estudiante puede trabajar y realizar prácticas en la misma empresa o institución, "
+        "siempre que las tareas desempeñadas como trabajador no estén relacionadas con los estudios vinculados a la práctica. "
+        "Es decir, el contrato laboral y las prácticas deben ser actividades independientes y no solaparse en contenidos o funciones."
+    ),
+    metadata={
+        "source": "manual",
+        "categoria": "compatibilidad_trabajo_practicas",
+        "role": role
+    }
+    ))
+
+    # Chunk 20: Prácticas externas simultáneas
+    docs.append(Document(
+    page_content=(
+        "Un estudiante puede realizar prácticas externas simultáneamente en varias empresas o instituciones, "
+        "siempre que estas sean compatibles con su carga académica. Además, la suma de las horas de todas las prácticas "
+        "no debe superar las 40 horas semanales, ya que este es el límite máximo permitido por la normativa."
+    ),
+    metadata={"source": "manual", "categoria": "practicas_simultaneas", "role": role}
+    ))
+
+
+    # Chunk 21: Recuperación de días
+    docs.append(Document(
+    page_content=(
+        "La asistencia a exámenes parciales o finales no se considera días a recuperar en las prácticas externas, siempre que esté justificada. "
+        "Es decir, no es obligatorio recuperar esas horas si el estudiante falta debido a la realización de pruebas académicas oficiales."
+    ),
+    metadata={
+        "source": "manual",
+        "categoria": "recuperacion_dias_examenes",
+        "role": role
+    }
+    ))
+
+    # Chunk 22: Tutor de prácticas
+    docs.append(Document(
+    page_content=(
+        "La figura del tutor de prácticas es independiente del firmante del convenio por parte de la empresa o institución, "
+        "por lo que ambas figuras pueden coincidir o no. "
+        "Sin embargo, el tutor asignado por la UPV y el tutor designado por la empresa no pueden ser la misma persona en ningún caso."
+    ),
+    metadata={
+        "source": "manual",
+        "categoria": "tutores_y_firmantes",
+        "role": role
+    }
+    ))
+
+    # Chunk 23: Programas especiales de prácticas
+    docs.append(Document(
+        page_content=(
+            "Un programa especial para la realización de prácticas es una modalidad gestionada directamente por la UPV que permite a los estudiantes acceder a prácticas específicas en determinadas empresas o instituciones. "
+            "Algunos ejemplos de estos programas son: prácticas dentro de la UPV, prácticas en Ford España, becas Santander CRUE CEPYME, prácticas en el Ayuntamiento de Valencia, la Diputación de Valencia o Consellerías."
+            "Los requisitos y plazos varían según la convocatoria."
+        ),
+        metadata={
+            "source": "manual",
+            "categoria": "programas_especiales_practicas",
+            "role": role
+        }
+    ))
+
+    # Chunk 24: Declaración de la renta para estudiantes en prácticas
+    docs.append(Document(
+    page_content=(
+        "Si un estudiante percibe ingresos por la realización de prácticas externas, debe consultar con la Agencia Tributaria para determinar "
+        "si tiene la obligación de presentar la declaración de la renta en función de su situación personal. "
+        "Para más información oficial se recomienda visitar www.agenciatributaria.es."
+    ),
+    metadata={
+        "source": "manual",
+        "categoria": "declaracion_renta_practicas",
+        "role": role
+    }
+    ))
 
 
 
