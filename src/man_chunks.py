@@ -93,10 +93,12 @@ def cargar_chunks_manual(role):
     # Chunk 8: Matrícula y ajustes
     docs.append(Document(
         page_content=(
-            "Matrícula y ajustes: En los grados simples de la Universitat Politècnica de València (UPV), donde existe optatividad, es posible cambiar asignaturas optativas por prácticas curriculares. "
-            "Este cambio se realiza mediante un ajuste de matrícula desde la Secretaría virtual: Solicitudes > Solicitud Baja de Matrícula > Baja parcial > Ajuste prácticas externas. "
-            "Este ajuste también permite hacer el cambio inverso, es decir, dar de baja las prácticas externas y matricular asignaturas optativas. "
-            "En cambio, en los dobles grados que no contemplan optatividad, no es posible realizar este tipo de sustituciones."
+           "En los grados simples de la UPV con optatividad, SÍ es posible sustituir asignaturas optativas del mismo cuatrimestre por prácticas curriculares. "
+            "Esto se hace mediante un ajuste de matrícula en la Secretaría virtual: Solicitudes > Solicitud Baja de Matrícula > Baja parcial > Ajuste prácticas externas. "
+            "También permite la operación inversa: dar de baja las prácticas y matricular optativas. "
+            "Incluso si ya has hecho la matrícula, puedes solicitar el cambio dentro de los plazos administrativos. "
+            "No aplica a asignaturas obligatorias ni troncales, ni a dobles grados donde no hay optatividad."
+
         ),
         metadata={"source": "manual", "categoria": "matricula_ajustes", "role": role}
     ))
@@ -131,7 +133,7 @@ def cargar_chunks_manual(role):
         page_content=(
             "Bolsa económica de las prácticas: Según la normativa de la Universitat Politècnica de València (UPV), todas las prácticas externas deben incluir una bolsa económica de ayuda al estudio, "
             "salvo que exista una exención aprobada por la estructura responsable del título y el vicerrectorado con competencia en empleo. "
-            "La bolsa mínima establecida por la UPV es de 4,60 euros brutos por hora de práctica. "
+            "La bolsa mínima establecida por la UPV es de 5 euros brutos por hora de práctica. "
             "Antes de firmar el convenio, el estudiante puede negociar directamente con la empresa las condiciones económicas, siempre respetando el mínimo establecido. "
             "Esta bolsa es obligatoria incluso para las prácticas realizadas en la propia UPV."
         ),
@@ -202,13 +204,14 @@ def cargar_chunks_manual(role):
     # Chunk 17: Prácticas en la propia UPV
     docs.append(Document(
     page_content=(
-        "⚠️ Este procedimiento aplica únicamente a prácticas en las que la Universitat Politècnica de València (UPV) actúa como entidad colaboradora, es decir, cuando la práctica se realiza en una unidad, departamento o servicio de la propia UPV. "
-        "🚫 Este procedimiento NO aplica a la mayoría de las prácticas externas realizadas en empresas externas. "
-        "Solo en estos casos específicos dentro de la UPV es necesario enviar por email los siguientes 5 documentos correctamente cumplimentados y firmados electrónicamente, al menos 10 días antes del inicio de la práctica: "
-        "1) Compromiso presupuestario del responsable, "
-        "2) Convenio de prácticas, "
-        "3) Documento 'Datos' del estudiante, "
-        "4) Documento 'Seguro' del estudiante, "
+        "Este procedimiento y la entrega de los siguientes 5 documentos aplica únicamente cuando la Universitat Politècnica de València (UPV) actúa como entidad colaboradora, "
+        "es decir, cuando la práctica se realiza en una unidad, departamento o servicio interno de la propia UPV. "
+        "Estos documentos NO son necesarios para prácticas externas en empresas fuera de la UPV.\n\n"
+        "En prácticas en la UPV deben entregarse, al menos 10 días antes del inicio, los siguientes documentos firmados electrónicamente:\n"
+        "1) Compromiso presupuestario del responsable.\n"
+        "2) Convenio de prácticas.\n"
+        "3) Documento 'Datos' del estudiante.\n"
+        "4) Documento 'Seguro' del estudiante.\n"
         "5) Fotocopia del DNI/NIE del estudiante."
     ),
     metadata={"source": "manual", "categoria": "upv_entidad_colaboradora", "role": role}
@@ -218,10 +221,11 @@ def cargar_chunks_manual(role):
     # Chunk 18: Prácticas en empresa externa
     docs.append(Document(
     page_content=(
-        "En la Universitat Politècnica de València (UPV), la mayoría de las prácticas externas se realizan en empresas externas (entidades privadas o públicas ajenas a la UPV). "
-        "En estos casos, no se requieren los 5 documentos específicos que aplican cuando la UPV actúa como entidad colaboradora. "
-        "El procedimiento general consiste en formalizar un convenio de cooperación educativa entre la empresa, el estudiante y la UPV, y designar un tutor o tutora en la empresa. "
-        "⚠️ Este es el procedimiento habitual salvo que la práctica se realice en una unidad, departamento o servicio interno de la UPV."
+        "En las prácticas externas realizadas en empresas fuera de la Universitat Politècnica de València (UPV), "
+        "NO es necesario entregar los 5 documentos que sí se requieren cuando la UPV actúa como entidad colaboradora. "
+        " En empresas externas, el procedimiento consiste en formalizar un convenio de cooperación educativa entre la empresa, el estudiante y la UPV, "
+        "y designar un tutor o tutora en la empresa.\n\n"
+        "No hay otros documentos específicos que el estudiante deba presentar directamente; la gestión principal la realiza la empresa y la UPV."
     ),
     metadata={"source": "manual", "categoria": "empresa_externa", "role": role}
     ))
@@ -306,6 +310,19 @@ def cargar_chunks_manual(role):
     }
     ))
 
+    # Chunk 25: Idioma del convenio de prácticas
+    docs.append(Document(
+    page_content=(
+        "El convenio de prácticas puede generarse en varios idiomas según las necesidades de la empresa o del estudiante. "
+        "En la herramienta 'Calcula tu práctica' es posible seleccionar el idioma en el que se generará el convenio. "
+        "Los idiomas disponibles actualmente son: español, inglés y valenciano."
+    ),
+    metadata={
+        "source": "manual",
+        "categoria": "idioma_convenio_practicas",
+        "role": role
+    }
+    ))
 
 
 

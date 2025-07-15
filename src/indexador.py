@@ -82,6 +82,7 @@ def scrape_siepract_estudiantes(url: str, role: str):
 def scrape_creditos_horas_extra(url: str, role: str):
     """
     Extrae toda la información general (excepto la tabla) desde la web de créditos/horas.
+    Ahora conserva los enlaces embebidos (Texto visible + URL).
     """
     headers = {"User-Agent": "Mozilla/5.0"}
     resp = requests.get(url, headers=headers, timeout=15)
@@ -91,20 +92,30 @@ def scrape_creditos_horas_extra(url: str, role: str):
     # Encontrar el contenido general excepto la tabla
     main_content = soup.find("div", class_="contenido") or soup.find("main") or soup.body
     if main_content:
+        # Eliminar tablas para no duplicar la tabla de créditos/horas
         for table in main_content.find_all("table"):
-            table.decompose()  # Eliminar tablas para no duplicar la tabla de créditos/horas
+            table.decompose()
+
+        # Procesar enlaces <a> para conservar URLs
+        for a in main_content.find_all("a", href=True):
+            link_text = a.get_text(strip=True)
+            href = a['href']
+            a.replace_with(f"{link_text} ({href})")
+
     raw_text = main_content.get_text("\n", strip=True) if main_content else ""
 
     doc = Document(
         page_content="## Información adicional sobre prácticas\n\n" + raw_text,
         metadata={"source": url, "role": role}
     )
+
     splitter = RecursiveCharacterTextSplitter(
         chunk_size=1000,
         chunk_overlap=250,
         separators=["\n\n", "\n", " ", ""]
     )
     return splitter.split_documents([doc])
+
 
 def construir_o_cargar_indice(ruta_directorio: str = "faiss_index") -> FAISS:
     """

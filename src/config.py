@@ -10,4 +10,4 @@ archivos_pdf = [
 ruta_tabla_pdf = "../Datos/Informacion-Practicas-Externas-ETSINF.pdf"
 
 # Solo el nombre del modelo, esto es configuración pura.
-embedding_model_name = "sentence-transformers/all-mpnet-base-v2"
+embedding_model_name = "text-embedding-ada-002"
