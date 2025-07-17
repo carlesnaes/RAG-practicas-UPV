@@ -128,7 +128,7 @@ def crear_rag_chain(vectorstore, memory, custom_prompt, role: str):
     Filtra los documentos por metadata['role'] antes de la recuperación.
     Aplica un reranker para mejorar la calidad de los chunks recuperados.
     """
-    llm = ChatOpenAI(model="gpt-3.5-turbo", temperature=0.2)
+    llm = ChatOpenAI(model="gpt-4o-mini", temperature=0.2)
 
     reranker_model = HuggingFaceCrossEncoder(model_name="BAAI/bge-reranker-base")
     

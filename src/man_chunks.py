@@ -166,14 +166,16 @@ def cargar_chunks_manual(role):
 
     # Chunk 14: Prácticas en el extranjero
     docs.append(Document(
-        page_content=(
-            "La Universitat Politècnica de València (UPV) se encuentra en España, por tanto, la tramitación de prácticas en todos los demás países que no son España, como por ejemplo Francia, Alemania o cualquier país, se considera práctica en el extranjero. "
-            "Para este tipo de prácticas, la normativa establece requisitos específicos: la documentación debe entregarse con al menos 30 días de antelación a la fecha de inicio de la práctica. "
-            "Además, es obligatorio contratar un seguro privado que cubra la estancia en el extranjero y consultar con la Unidad de Prácticas cualquier particularidad del destino. "
-            "Respecto al seguro, es importante mencionar que visites este documento para tener toda la información necesaria: https://www.upv.es/contenidos/siepract/download/17801/"
-        ),
-        metadata={"source": "manual", "categoria": "practicas_extracurriculares", "role": role}
+    page_content=(
+        "La Universitat Politècnica de València (UPV) se encuentra en España, por tanto, la tramitación de prácticas en todos los demás países que no son España, como por ejemplo Francia, Alemania o cualquier país, se considera práctica en el extranjero. "
+        "En la UPV es posible realizar tanto prácticas curriculares como extracurriculares en el extranjero, siempre que se cumplan los requisitos establecidos en la normativa. "
+        "Para este tipo de prácticas, la documentación debe entregarse con al menos 30 días de antelación a la fecha de inicio de la práctica. "
+        "Además, es obligatorio contratar un seguro privado que cubra la estancia en el extranjero y consultar con la Unidad de Prácticas cualquier particularidad del destino. "
+        "Respecto al seguro, es importante mencionar que visites este documento para tener toda la información necesaria: https://www.upv.es/contenidos/siepract/download/17801/"
+    ),
+    metadata={"source": "manual", "categoria": "practicas_extranjero", "role": role}
     ))
+
 
     # Chunk 15: Cómo generar un convenio de prácticas
     docs.append( Document(

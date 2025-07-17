@@ -53,7 +53,7 @@ def cargar_documentos_y_tabla(archivos_pdf, ruta_tabla_pdf, role, solo_tabla=Fal
 
         # Dividir en chunks
         splitter = RecursiveCharacterTextSplitter(
-            chunk_size=750,
+            chunk_size=800,
             chunk_overlap=200,
             separators=["\n\n", "\n", " ", ""]
         )

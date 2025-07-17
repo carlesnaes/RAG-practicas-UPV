@@ -48,35 +48,35 @@ def scrape_empresa(url: str, role: str):
     return splitter.split_documents(raw_docs)
 
 
-def scrape_siepract_estudiantes(url: str, role: str):
-    """
-    Extrae contenido de la web SIE prácticas para estudiantes y devuelve chunks con metadata.
-    """
-    headers = {"User-Agent": "Mozilla/5.0"}
-    resp = requests.get(url, headers=headers, timeout=15)
-    resp.raise_for_status()
-    soup = BeautifulSoup(resp.text, "html.parser")
+# def scrape_siepract_estudiantes(url: str, role: str):
+#     """
+#     Extrae contenido de la web SIE prácticas para estudiantes y devuelve chunks con metadata.
+#     """
+#     headers = {"User-Agent": "Mozilla/5.0"}
+#     resp = requests.get(url, headers=headers, timeout=15)
+#     resp.raise_for_status()
+#     soup = BeautifulSoup(resp.text, "html.parser")
 
-    main_content = soup.find("div", class_="contenido") or soup.find("main") or soup.body
-    raw_text = main_content.get_text("\n", strip=True) if main_content else soup.get_text("\n", strip=True)
+#     main_content = soup.find("div", class_="contenido") or soup.find("main") or soup.body
+#     raw_text = main_content.get_text("\n", strip=True) if main_content else soup.get_text("\n", strip=True)
 
-    document = Document(
-        page_content=raw_text,
-        metadata={"source": url, "role": role}
-    )
+#     document = Document(
+#         page_content=raw_text,
+#         metadata={"source": url, "role": role}
+#     )
 
-    splitter = RecursiveCharacterTextSplitter(
-        chunk_size=1000,
-        chunk_overlap=250,
-        separators=["\n\n", "\n", " ", ""]
-    )
-    chunks = splitter.split_documents([document])
+#     splitter = RecursiveCharacterTextSplitter(
+#         chunk_size=1000,
+#         chunk_overlap=250,
+#         separators=["\n\n", "\n", " ", ""]
+#     )
+#     chunks = splitter.split_documents([document])
 
-    encabezado = (
-        "⚠️⚠️ Esta información aplica únicamente cuando la Universitat Politècnica de València (UPV) actúa como empresa colaboradora para las prácticas, no sirve para las empresas externas a la UPV.")
-    for chunk in chunks:
-        chunk.page_content = encabezado + chunk.page_content
-    return chunks
+#     encabezado = (
+#         "⚠️⚠️ Esta información aplica únicamente cuando la Universitat Politècnica de València (UPV) actúa como empresa colaboradora para las prácticas, no sirve para las empresas externas a la UPV.")
+#     for chunk in chunks:
+#         chunk.page_content = encabezado + chunk.page_content
+#     return chunks
 
 
 def scrape_creditos_horas_extra(url: str, role: str):
@@ -124,7 +124,7 @@ def construir_o_cargar_indice(ruta_directorio: str = "faiss_index") -> FAISS:
     si no, crea uno desde cero.
     """
     embeddings = OpenAIEmbeddings(
-        model="text-embedding-ada-002",
+        model="text-embedding-3-small",
         openai_api_key=os.getenv("OPENAI_API_KEY")
     )
 
@@ -143,7 +143,7 @@ def construir_o_cargar_indice(ruta_directorio: str = "faiss_index") -> FAISS:
     archivos_pdf_estudiante,
     ruta_tabla_estudiante,
     role="estudiante",
-    solo_tabla=True  # 👈 solo queremos la tabla
+    solo_tabla=True  #  solo queremos la tabla
     )
     docs_est += cargar_documentos_y_tabla([("./Datos/ReglamPracUPVMod2022.pdf", "normativa_estudiante.txt")],
     None,
