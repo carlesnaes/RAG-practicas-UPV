@@ -73,7 +73,10 @@ rag_chain = init_chain(role)
 st.title("🎓 Asistente de Prácticas Externas - UPV")
 
 def clear_chat():
+    
     st.session_state.memory = get_memory()
+    global rag_chain
+    rag_chain = init_chain(role)
     st.session_state.messages = []
     st.session_state.last_audio = None
 st.button("🧹 Limpiar chat", on_click=clear_chat)
@@ -82,72 +85,82 @@ for msg in st.session_state.messages:
     with st.chat_message(msg["role"]):
         st.write(msg["message"])
 
-tab_text, tab_voice = st.tabs(["✏️ Texto", "🎤 Voz"])
+# Detecta pestaña activa o usa una por defecto
+if "active_tab" not in st.session_state:
+    st.session_state.active_tab = "✏️ Texto"
+
+tab = st.radio("Selecciona modo:", ["✏️ Texto", "🎤 Voz"], index=0 if st.session_state.active_tab == "✏️ Texto" else 1, horizontal=True)
+st.session_state.active_tab = tab
 
 
-with tab_text:
-    if user_text := st.chat_input("Escribe tu pregunta..."):
-        st.session_state.messages.append({
-            "role": "user",
-            "message": user_text,
-            "timestamp": dt.now().strftime("%H:%M:%S"),
-        })
-        with st.chat_message("assistant"):
-            with st.spinner("Pensando..."):
-                try:
-                    out = rag_chain.invoke({"question": user_text})
-                    answer = out.get("answer", "⚠️ Sin respuesta.")
-                    docs = out.get("source_documents", [])
-                except Exception as e:
-                    answer = f"⚠️ Error: {e}"
-                    docs = []
-                st.write(answer)
-                if docs:
-                    with st.expander("📂 Documentos utilizados"):
-                        for i, d in enumerate(docs, 1):
-                            st.markdown(f"**{i}. Fuente:** `{d.metadata.get('source','desconocida')}`")
-                            st.write(d.page_content)
-        st.session_state.messages.append({
-            "role": "assistant",
-            "message": answer,
-            "timestamp": dt.now().strftime("%H:%M:%S"),
-        })
+if st.session_state.active_tab == "✏️ Texto":
 
-with tab_voice:
-    st.info("Pulsa **Grabar** y di tu pregunta (máximo ~30s)")
-    audio_data = st.audio_input(label="Grabar pregunta")
-    if audio_data is not None and audio_data != st.session_state.last_audio:
-        st.session_state.last_audio = audio_data
-        with st.spinner("Transcribiendo…"):
-            audio_result = openai.audio.transcriptions.create(
-                file=audio_data,
-                model="whisper-1"
-            )
-            transcript = audio_result.text.strip()
-        st.write("🗣️", transcript)
-        st.session_state.messages.append({
-            "role": "user",
-            "message": transcript,
-            "timestamp": dt.now().strftime("%H:%M:%S"),
-        })
-        with st.chat_message("assistant"):
-            with st.spinner("Pensando…"):
-                try:
-                    out = rag_chain.invoke({"question": transcript})
-                    answer = out.get("answer", "⚠️ Sin respuesta.")
-                    docs = out.get("source_documents", [])
+        if user_text := st.chat_input("Escribe tu pregunta..."):
+            st.session_state.messages.append({
+                "role": "user",
+                "message": user_text,
+                "timestamp": dt.now().strftime("%H:%M:%S"),
+            })
+            with st.chat_message("user"):
+                st.write(user_text)
+            with st.chat_message("assistant"):
+                with st.spinner("Pensando..."):
+                    try:
+                        out = rag_chain.invoke({"question": user_text})
+                        answer = out.get("answer", "⚠️ Sin respuesta.")
+                        docs = out.get("source_documents", [])
+                    except Exception as e:
+                        answer = f"⚠️ Error: {e}"
+                        docs = []
+                    st.write(answer)
+                    if docs:
+                        with st.expander("📂 Documentos utilizados"):
+                            for i, d in enumerate(docs, 1):
+                                st.markdown(f"**{i}. Fuente:** `{d.metadata.get('source','desconocida')}`")
+                                st.write(d.page_content)
+            st.session_state.messages.append({
+                "role": "assistant",
+                "message": answer,
+                "timestamp": dt.now().strftime("%H:%M:%S"),
+            })
 
-                except Exception as e:
-                    answer = f"⚠️ Error: {e}"
-                    docs = []
-                st.write(answer)
-                if docs:
-                    with st.expander("📂 Documentos utilizados"):
-                        for i, d in enumerate(docs, 1):
-                            st.markdown(f"**{i}. Fuente:** `{d.metadata.get('source','desconocida')}`")
-                            st.write(d.page_content)
-        st.session_state.messages.append({
-            "role": "assistant",
-            "message": answer,
-            "timestamp": dt.now().strftime("%H:%M:%S"),
-        })
+else:
+
+        st.info("Pulsa **Grabar** (máximo ~30s)")
+        audio_data = st.audio_input(label="Grabar pregunta")
+        if audio_data is not None and audio_data != st.session_state.last_audio:
+            st.session_state.last_audio = audio_data
+            with st.spinner("Transcribiendo…"):
+                audio_result = openai.audio.transcriptions.create(
+                    file=audio_data,
+                    model="whisper-1"
+                )
+                transcript = audio_result.text.strip()
+            st.session_state.messages.append({
+                "role": "user",
+                "message": transcript,
+                "timestamp": dt.now().strftime("%H:%M:%S"),
+            })
+            with st.chat_message("user"):
+                st.write(transcript)
+            with st.chat_message("assistant"):
+                with st.spinner("Pensando…"):
+                    try:
+                        out = rag_chain.invoke({"question": transcript})
+                        answer = out.get("answer", "⚠️ Sin respuesta.")
+                        docs = out.get("source_documents", [])
+
+                    except Exception as e:
+                        answer = f"⚠️ Error: {e}"
+                        docs = []
+                    st.write(answer)
+                    if docs:
+                        with st.expander("📂 Documentos utilizados"):
+                            for i, d in enumerate(docs, 1):
+                                st.markdown(f"**{i}. Fuente:** `{d.metadata.get('source','desconocida')}`")
+                                st.write(d.page_content)
+            st.session_state.messages.append({
+                "role": "assistant",
+                "message": answer,
+                "timestamp": dt.now().strftime("%H:%M:%S"),
+            })

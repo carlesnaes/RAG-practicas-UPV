@@ -129,16 +129,16 @@ def cargar_chunks_manual(role):
     ))
 
     # Chunk 11: Bolsa económica
-    docs.append(Document(
-        page_content=(
-            "Bolsa económica de las prácticas: Según la normativa de la Universitat Politècnica de València (UPV), todas las prácticas externas deben incluir una bolsa económica de ayuda al estudio, "
-            "salvo que exista una exención aprobada por la estructura responsable del título y el vicerrectorado con competencia en empleo. "
-            "La bolsa mínima establecida por la UPV es de 5 euros brutos por hora de práctica. "
-            "Antes de firmar el convenio, el estudiante puede negociar directamente con la empresa las condiciones económicas, siempre respetando el mínimo establecido. "
-            "Esta bolsa es obligatoria incluso para las prácticas realizadas en la propia UPV."
-        ),
-        metadata={"source": "manual", "categoria": "bolsa_economica", "role": role}
-    ))
+    # docs.append(Document(
+    #     page_content=(
+    #         "Bolsa económica de las prácticas: Según la normativa de la Universitat Politècnica de València (UPV), todas las prácticas externas deben incluir una bolsa económica de ayuda al estudio, "
+    #         "salvo que exista una exención aprobada por la estructura responsable del título y el vicerrectorado con competencia en empleo. "
+    #         "La bolsa mínima establecida por la UPV es de 5 euros brutos por hora de práctica. "
+    #         "Antes de firmar el convenio, el estudiante puede negociar directamente con la empresa las condiciones económicas, siempre respetando el mínimo establecido. "
+    #         "Esta bolsa es obligatoria incluso para las prácticas realizadas en la propia UPV."
+    #     ),
+    #     metadata={"source": "manual", "categoria": "bolsa_economica", "role": role}
+    # ))
 
     # Chunk 12: Firmas electrónicas
     docs.append(Document(
