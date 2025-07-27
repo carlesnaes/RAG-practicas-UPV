@@ -48,37 +48,6 @@ def scrape_empresa(url: str, role: str):
     return splitter.split_documents(raw_docs)
 
 
-# def scrape_siepract_estudiantes(url: str, role: str):
-#     """
-#     Extrae contenido de la web SIE prácticas para estudiantes y devuelve chunks con metadata.
-#     """
-#     headers = {"User-Agent": "Mozilla/5.0"}
-#     resp = requests.get(url, headers=headers, timeout=15)
-#     resp.raise_for_status()
-#     soup = BeautifulSoup(resp.text, "html.parser")
-
-#     main_content = soup.find("div", class_="contenido") or soup.find("main") or soup.body
-#     raw_text = main_content.get_text("\n", strip=True) if main_content else soup.get_text("\n", strip=True)
-
-#     document = Document(
-#         page_content=raw_text,
-#         metadata={"source": url, "role": role}
-#     )
-
-#     splitter = RecursiveCharacterTextSplitter(
-#         chunk_size=1000,
-#         chunk_overlap=250,
-#         separators=["\n\n", "\n", " ", ""]
-#     )
-#     chunks = splitter.split_documents([document])
-
-#     encabezado = (
-#         "⚠️⚠️ Esta información aplica únicamente cuando la Universitat Politècnica de València (UPV) actúa como empresa colaboradora para las prácticas, no sirve para las empresas externas a la UPV.")
-#     for chunk in chunks:
-#         chunk.page_content = encabezado + chunk.page_content
-#     return chunks
-
-
 def scrape_creditos_horas_extra(url: str, role: str):
     """
     Extrae toda la información general (excepto la tabla) desde la web de créditos/horas.
@@ -119,16 +88,12 @@ def scrape_creditos_horas_extra(url: str, role: str):
 
 def construir_o_cargar_indice(ruta_directorio: str = "faiss_index") -> FAISS:
     """
-    Crea o actualiza incrementalmente un índice FAISS.
-    Si el índice existe, añade solo los chunks nuevos (basado en checksum),
-    si no, crea uno desde cero.
+    Crea o actualiza incrementalmente un índice FAISS:
+      - Elimina del índice los chunks que ya no aparecen en la fuente.
+      - Añade únicamente los chunks nuevos.
+    El identificador de cada chunk es su checksum MD5 más un sufijo para garantizar unicidad.
     """
-    embeddings = OpenAIEmbeddings(
-        model="text-embedding-3-small",
-        openai_api_key=os.getenv("OPENAI_API_KEY")
-    )
-
-    # Carga documentos normativos, manuales y scraping
+    # 0️⃣ Carga todos los docs de tu pipeline actual
     archivos_pdf_estudiante = [
         ("./Datos/ReglamPracUPVMod2022.pdf", "normativa_estudiante.txt"),
         ("./Datos/Informacion-Practicas-Externas-ETSINF.pdf", "creditos_horas.txt")
@@ -137,68 +102,125 @@ def construir_o_cargar_indice(ruta_directorio: str = "faiss_index") -> FAISS:
     archivos_pdf_empresa = [
         ("./Datos/ReglamPracUPVMod2022.pdf", "normativa_empresa.txt")
     ]
-    ruta_tabla_empresa = None
 
     docs_est = cargar_documentos_y_tabla(
-    archivos_pdf_estudiante,
-    ruta_tabla_estudiante,
-    role="estudiante",
-    solo_tabla=True  #  solo queremos la tabla
+        archivos_pdf_estudiante,
+        ruta_tabla_estudiante,
+        role="estudiante",
+        solo_tabla=True
     )
-    docs_est += cargar_documentos_y_tabla([("./Datos/ReglamPracUPVMod2022.pdf", "normativa_estudiante.txt")],
-    None,
-    role="estudiante"
-    )
-
-    docs_est += cargar_chunks_manual(role="estudiante")
-    docs_est += scrape_creditos_horas_extra(
-        url="https://www.upv.es/entidades/etsinf/estudiante-2-2/",
+    docs_est += cargar_documentos_y_tabla(
+        [("./Datos/ReglamPracUPVMod2022.pdf", "normativa_estudiante.txt")],
+        None,
         role="estudiante"
     )
-    # docs_est += scrape_siepract_estudiantes(
-    #     url="https://www.upv.es/contenidos/siepract/practicas-en-entidades-upv/",
-    #     role="estudiante"
-    # )
+    docs_est += cargar_chunks_manual(role="estudiante")
 
     docs_emp = cargar_documentos_y_tabla(
         archivos_pdf_empresa,
-        ruta_tabla_empresa,
+        None,
         role="empresa"
     )
     docs_emp += cargar_chunks_manual(role="empresa")
-    docs_emp += scrape_empresa(
-        url="https://www.upv.es/entidades/etsinf/empresa/",
-        role="empresa"
-    )
+
+    docs_emp += scrape_empresa("https://www.upv.es/entidades/etsinf/empresa/", role="empresa")
+    docs_est += scrape_creditos_horas_extra("https://www.upv.es/entidades/etsinf/informacion-estudiante/", role="estudiante")
+
 
     all_docs = docs_est + docs_emp
-    # Calcular checksum para cada chunk
-    for doc in all_docs:
-        chk = md5(doc.page_content.encode('utf-8')).hexdigest()
-        doc.metadata['checksum'] = chk
 
-    # Carga o actualización incremental del índice
+    # 1️⃣ Calcula checksum e ID único para cada chunk
+    seen = set()
+    ids = []
+    for doc in all_docs:
+        base_chk = md5(doc.page_content.encode("utf-8")).hexdigest()
+        unique_id = base_chk
+        suffix = 1
+        while unique_id in seen:
+            unique_id = f"{base_chk}_{suffix}"
+            suffix += 1
+        seen.add(unique_id)
+        doc.metadata["checksum"] = base_chk
+        doc.metadata["id"] = unique_id
+        ids.append(unique_id)
+
+    # 2️⃣ Prepara Embeddings
+    embeddings = OpenAIEmbeddings(
+        model="text-embedding-3-small",
+        openai_api_key=os.getenv("OPENAI_API_KEY")
+    )
+
+    # 3️⃣ Crea o carga FAISS
     if os.path.exists(ruta_directorio):
         faiss_index = FAISS.load_local(
             ruta_directorio,
             embeddings=embeddings,
             allow_dangerous_deserialization=True
         )
-        existing = faiss_index.docstore._dict.values()
-        existing_checksums = {d.metadata.get('checksum') for d in existing}
-        new_docs = [d for d in all_docs if d.metadata['checksum'] not in existing_checksums]
-        if new_docs:
-            faiss_index.add_documents(new_docs)
-            print(f"Añadidos {len(new_docs)} chunks nuevos al índice.")
-        else:
-            print("No hay chunks nuevos para añadir.")
-    else:
-        faiss_index = FAISS.from_documents(all_docs, embeddings)
-        print(f"Índice creado con {len(all_docs)} chunks.")
+        # 3.a️⃣ Recoge docs ya indexados
+        doc_dict = faiss_index.docstore._dict
+        existing_ids = set(doc_dict.keys())
 
+        # 3.b️⃣ Bajas: IDs que ya no están en current
+        current_ids = set(ids)
+        to_delete = existing_ids - current_ids
+        if to_delete:
+            faiss_index.delete(list(to_delete))
+            print(f"🗑️ Eliminados {len(to_delete)} chunks obsoletos del índice.")
+
+        # 3.c️⃣ Altas: docs nuevos
+        new_ids = [i for i in ids if i not in existing_ids]
+        if new_ids:
+            new_docs = [doc for doc in all_docs if doc.metadata["id"] in new_ids]
+            faiss_index.add_documents(new_docs, ids=new_ids)
+            print(f" Añadidos {len(new_ids)} chunks nuevos al índice.")
+        else:
+            print(" No hay chunks nuevos que añadir.")
+    else:
+        faiss_index = FAISS.from_documents(all_docs, embeddings, ids=ids)
+        print(f" Índice creado con {len(ids)} chunks.")
+
+    # 4️⃣ Guarda el índice
     faiss_index.save_local(ruta_directorio)
+    print(" Índice FAISS guardado en disco.")
+
     return faiss_index
 
 
 if __name__ == "__main__":
     construir_o_cargar_indice()
+
+
+
+# def scrape_siepract_estudiantes(url: str, role: str):
+#     """
+#     Extrae contenido de la web SIE prácticas para estudiantes y devuelve chunks con metadata.
+#     """
+#     headers = {"User-Agent": "Mozilla/5.0"}
+#     resp = requests.get(url, headers=headers, timeout=15)
+#     resp.raise_for_status()
+#     soup = BeautifulSoup(resp.text, "html.parser")
+
+#     main_content = soup.find("div", class_="contenido") or soup.find("main") or soup.body
+#     raw_text = main_content.get_text("\n", strip=True) if main_content else soup.get_text("\n", strip=True)
+
+#     document = Document(
+#         page_content=raw_text,
+#         metadata={"source": url, "role": role}
+#     )
+
+#     splitter = RecursiveCharacterTextSplitter(
+#         chunk_size=1000,
+#         chunk_overlap=250,
+#         separators=["\n\n", "\n", " ", ""]
+#     )
+#     chunks = splitter.split_documents([document])
+
+#     encabezado = (
+#         "⚠️⚠️ Esta información aplica únicamente cuando la Universitat Politècnica de València (UPV) actúa como empresa colaboradora para las prácticas, no sirve para las empresas externas a la UPV.")
+#     for chunk in chunks:
+#         chunk.page_content = encabezado + chunk.page_content
+#     return chunks
+
+
+  
